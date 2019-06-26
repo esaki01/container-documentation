@@ -1,9 +1,9 @@
 # Docker Command Memo
+Dockerコマンドをメモしていく.
 
 # docker image build - イメージのビルド
 `docker image build`は、DockerfileをもとにDockerイメージを作成する.
 
-## コマンド例
 ```
 docker image build -t 名前空間/イメージ名:タグ名 Dockerfile配置ディレクトリパス
 ```
@@ -17,11 +17,11 @@ ex) docker image build -t ch02/example1/echo:latest ./ch02/example1
 ex) docker image build --build-arg builddate=today -t ch02/example3/others:latest ./ch02/example3
 ```
 
-## オプション
-### -f
+オプション
+- -f
 Dockefile以外の名前のDockerfileを探しにいく.
 
-### --pull
+- --pull
 `--pull=true`でビルド時にローカルのキャッシュからではなく、リモートの最新版を参照する.
 
 # docker search - イメージの取得
