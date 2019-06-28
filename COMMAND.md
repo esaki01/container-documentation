@@ -18,11 +18,9 @@ ex) docker image build --build-arg builddate=today -t ch02/example3/others:lates
 ```
 
 オプション
-- -f
-Dockefile以外の名前のDockerfileを探しにいく.
+- -f: Dockefile以外の名前のDockerfileを探しにいく.
 
-- --pull
-`--pull=true`でビルド時にローカルのキャッシュからではなく、リモートの最新版を参照する.
+- --pull: `--pull=true`でビルド時にローカルのキャッシュからではなく、リモートの最新版を参照する.
 
 # docker search - イメージの取得
 Docker Hubでは、GitHubと同じようにリポジトリを持つことができる.
@@ -76,19 +74,29 @@ docker image push [options] リポジトリ名:タグ名
 ex) docker image push esaki1011/echo:latest
 ```
 
-# Dockerコンテナを実行する
+# docker container run - コンテナの作成と実行
+Dockerイメージからコンテナを作成、実行する.
+
 ```
-docker container run ch02/example1/echo:latest
+docker container run [options] イメージ名:タグ名 コマンド コマンド引数
+```
+
+```
+docker container run [options] イメージID コマンド コマンド引数
+```
+
+```
+ex) docker container run ch02/example1/echo:latest
 ```
 
 バックグラウンド実行する
 ```
-docker container run -d ch02/example1/echo:latest
+ex) docker container run -d ch02/example1/echo:latest
 ```
 
 ENTRYPOINTを利用している場合
 ```
-docker container run ch02/example2/golang:latest version
+ex) docker container run ch02/example2/golang:latest version
 ```
 
 ポートフォワーディング
@@ -103,17 +111,114 @@ docker container run -d -p {ホスト側ポート}:{コンテナポート} 名�
 ex) docker container run -d -p 9000:8080 ch02/example1/echo:latest
 ```
 
-# Dockerコンテナを確認する
+コンテナに名前をつける
+
 ```
-docker container ls
+docker container run --name コンテナ名 イメージ名:タグ名
 ```
 
-# Dockerコンテナを止める
 ```
-docker stop $(docker container ls -q)
+ex) docker container run -t -d --name esaki01-echo ch02/example1/echo:latest
+```
+
+頻出オプション
+
+- -it: シェルに入ってコマンド実行を可能にする
+
+- -rm: コンテナ終了時にコンテナを破棄する
+
+- -v: ホストとコンテナ間でディレクトリ、ファイルを共有する
+
+# docker container ls - コンテナの一覧
+実行中や終了したコンテナの一覧を表示する.
+
+```
+docker container ls [options]
+```
+
+```
+ex) docker container ls
+```
+
+オプション
+
+- -q: コンテナIDだけを抽出する
+
+- --filter: 特定の条件に一致するものだを抽出する
+
+- -a: 終了したコンテナを取得する
+
+# docker container stop - コンテナの停止
+実行しているコンテナを終了する.
+
+```
+docker container stop コンテナIDまたはコンテナ名
+```
+
+```
+ex) docker container stop $(docker container ls -q)
 ```
 
 特定のコンテナのみを止める
 ```
-docker container stop $(docker container ls --filter "ancestor=ch02/example1/echo" -q)
+ex) docker container stop $(docker container ls --filter "ancestor=ch02/example1/echo" -q)
+```
+
+# docker container restart - コンテナの再起動
+コンテナを再実行する.
+
+```
+docker container restart コンテナIDまたはコンテナ名
+```
+
+```
+ex) docker container restart esaki01-echo
+```
+
+# docker container rm - コンテナの破棄
+停止したコンテナをディスクから完全に破棄する.
+
+```
+docker container rm コンテナIDまたはコンテナ名
+```
+
+```
+ex) docker container rm esaki01-echo
+```
+
+# docker container logs - 標準出力の取得
+Dockerコンテナの標準出力を表示する.
+
+```
+docker container logs [options] コンテナIDまたはコンテナ名
+```
+
+```
+ex) docker container logs -f esaki01-echo
+```
+
+オプション
+
+- -f: 標準出力の取得をし続ける
+
+# docker container exec - 実行中コンテナでのコマンド実行
+実行しているDockerコンテナの中で任意のコマンドを実行できる.
+
+```
+docker container exec [options] コンテナIDまたはコンテナ名 コンテナ内で実行するコマンド
+```
+
+```
+ex) docker container exec -it esaki01-echo sh
+```
+
+# docker container cp - ファイルのコピー
+コンテナ間、コンテナ・ホスト間でファイルをコピーできる. DockerのCOPYはイメージビルド時にホストからファイルをコピーするために利用されるが、`docker container cp`は実行中のコンテナ間でのファイルのやり取りをする. コンテナの中で生成されたファイルをホストにコピーして確認するようなデバッグ用途でのユースケースが代表的.
+
+```
+docker container cp [options] コンテナIDまたはコンテナ名:コンテナ内のコピー元 ホストのコピー先
+```
+
+```
+docker container cp [options] ホストのコピー元 コンテナIDまたはコンテナ名:コンテナ内のコピー先
 ```
