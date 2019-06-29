@@ -1,5 +1,5 @@
-# Docker Compose
-Docker Composeについてメモしていく.
+# Docker Compose（複数のコンテナを使うDockerアプリケーションの管理（主にシングルホスト））
+Docker Composeについてメモしていく.　　
 
 # docker-compose up - コンテナ群の起動
 docker-compose.ymlを作成したディレクトリで、定義をもとにコンテナ群を起動する.
