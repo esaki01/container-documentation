@@ -9,12 +9,12 @@ docker image build -t 名前空間/イメージ名:タグ名 Dockerfile配置デ
 ```
 
 ```
-ex) docker image build -t ch02/example1/echo:latest ./ch02/example1
+ex) docker image build -t ch02/ex1/echo:latest ./ch02/ex1_echo
 ```
 
 実行時引数ARGに値を渡す例
 ```
-ex) docker image build --build-arg builddate=today -t ch02/example3/others:latest ./ch02/example3
+ex) docker image build --build-arg builddate=today -t ch02/ex3/others:latest ./ch02/ex3_others
 ```
 
 オプション
@@ -60,7 +60,7 @@ docker image tag 元イメージ名:タグ名 新イメージ名:タグ名
 ```
 
 ```
-ex) docker image tag example/echo:latest example/echo:0.1.0
+ex) docker image tag ch02/ex1/echo:latest example/echo:0.1.0
 ```
 
 # docker image push - イメージの公開
@@ -71,7 +71,7 @@ docker image push [options] リポジトリ名:タグ名
 ```
 
 ```
-ex) docker image push esaki1011/echo:latest
+ex) docker image push esaki01/echo:latest
 ```
 
 # docker image prune - イメージの破棄
@@ -93,17 +93,17 @@ docker container run [options] イメージID コマンド コマンド引数
 ```
 
 ```
-ex) docker container run ch02/example1/echo:latest
+ex) docker container run ch02/ex1/echo:latest
 ```
 
 バックグラウンド実行する
 ```
-ex) docker container run -d ch02/example1/echo:latest
+ex) docker container run -d ch02/ex1/echo:latest
 ```
 
 ENTRYPOINTを利用している場合
 ```
-ex) docker container run ch02/example2/golang:latest version
+ex) docker container run ch02/ex2/golang:latest version
 ```
 
 ポートフォワーディング
@@ -115,7 +115,7 @@ docker container run -d -p {ホスト側ポート}:{コンテナポート} 名�
 ```
 
 ```
-ex) docker container run -d -p 9000:8080 ch02/example1/echo:latest
+ex) docker container run -d -p 9000:8080 ch02/ex1/echo:latest
 ```
 
 コンテナに名前をつける
@@ -125,7 +125,7 @@ docker container run --name コンテナ名 イメージ名:タグ名
 ```
 
 ```
-ex) docker container run -t -d --name esaki01-echo ch02/example1/echo:latest
+ex) docker container run -t -d --name esaki01-echo ch02/ex1/echo:latest
 ```
 
 頻出オプション
@@ -168,7 +168,7 @@ ex) docker container stop $(docker container ls -q)
 
 特定のコンテナのみを止める
 ```
-ex) docker container stop $(docker container ls --filter "ancestor=ch02/example1/echo" -q)
+ex) docker container stop $(docker container ls --filter "ancestor=ch02/ex1/echo" -q)
 ```
 
 # docker container restart - コンテナの再起動
