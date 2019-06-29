@@ -1,5 +1,5 @@
-# Docker Command Memo
-Dockerコマンドをメモしていく.
+# Docker Basic
+Dockerの基礎知識やコマンドをメモしていく.
 
 # docker image build - イメージのビルド
 `docker image build`は、DockerfileをもとにDockerイメージを作成する.
