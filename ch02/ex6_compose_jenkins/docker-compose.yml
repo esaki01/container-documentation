@@ -1,0 +1,17 @@
+version: "3"
+services:
+  master:
+    container_name: master
+    image: jenkins:latest
+    ports:
+      - 8080:8080
+    volumes: # ホスト・コンテナ間でファイルを共有する
+      - ./jenkins_home:/var/jenkins_home # ホスト:コンテナ
+    links:
+      - slave01
+
+  slave01:
+    container_name: slave01
+    image: jenkinsci/ssh-slave
+    environment:
+      - JENKINS_SLAVE_SSH_PUBKEY=ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDP8PMmEKqMvOzzl6B0+L8dfqM4qf3RzNOL9bFmpHaHNQj8k4sN2CbUFAHvHt4oYuA38hvlrrnSUu0+3O2czOocPK3SBWEpFwfjmgGoFdwqPv1qUVPj6tM0REJoBh+g3/o+F4d3ddhHroq8cwNgcbQllLZBgwXxX+Aw8lsr+CIn6HnyLdKlYBtbKXkMw1garukxOnVXtW0th2M2q2fyoQdcxpTeWfkXSEsEKW4dKRqKyDTPg6AcYxJz0+NYXR0t9gGeuSHZFYy2+mtiGgxAWnOQ9w+RaakZ/XzMb+kDRTENVLJLS1nsJmm64tJ/UINjp0BsNPrKFU0pEzYjy3+mEBJ5
