@@ -1,0 +1,15 @@
+# コンテナ群がSwarmクラスタ上のノードにどのように配置されているかを可視化する
+
+version: "3"
+
+services:
+  app:
+    image: dockersamples/visualizer
+    ports:
+      - "9000:8080" # managerノードの9000からvisualizerコンテナの8080
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    deploy:
+      mode: global # 特定のコンテナをクラスタ上の全ノードに配置できる設定
+      placement:
+        constraints: [node.role == manager]
