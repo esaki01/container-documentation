@@ -22,7 +22,7 @@ ex) docker image build --build-arg builddate=today -t ch02/ex3/others:latest ./c
 
 - --pull: `--pull=true`でビルド時にローカルのキャッシュからではなく、リモートの最新版を参照する.
 
-# docker search - イメージの取得
+# docker search - イメージの検索
 Docker Hubでは、GitHubと同じようにリポジトリを持つことができる.
 `docker search`では、Docker Hubに登録されているリポジトリを検索できる.
 
