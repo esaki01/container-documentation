@@ -78,7 +78,7 @@ ex) docker image push esaki01/echo:latest
 不要なイメージを一括削除する.
 
 ```
-docker container prune [options]
+docker image prune [options]
 ```
 
 # docker container run - コンテナの作成と実行
