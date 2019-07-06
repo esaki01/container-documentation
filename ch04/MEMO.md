@@ -11,9 +11,3 @@
 ```
 docker container exec -it manager docker network create --driver=overlay --attachable todoapp
 ```
-
-## MySQL Serviceの構築
-
-```
-
-```
