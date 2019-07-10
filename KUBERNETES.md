@@ -68,6 +68,23 @@ Kubernetesの各種リソースを定義するyamlファイルをマニフェス
 ex) kubectl apply -f simple-pod.yaml
 ```
 
+オプション
+- --record: 実行したコマンドを記録する
+
+#### kubectl rollout history - リビジョンの確認
+
+```
+ex) kubectl rollout history deployment echo
+```
+
+- --revision: 特定のリビジョンの内容を確認する
+
+#### kubectl rollout undo - ロールバック
+
+```
+ex) kubectl rollout undo deployment echo
+```
+
 #### kubectl get pod - Podの一覧
 
 ```
@@ -98,3 +115,25 @@ ex) kubectl delete pod simple-pod.yaml
 
 ### ReplicaSet
 ReplicaSetは、同じ仕様のPodを複数生成・管理するためのリソース.
+
+### Deployment
+Deploymentは、ReplicaSetを管理・操作するためのリソース. アプリケーションデプロイの基本単位となる.  
+Pod, ReplicaSet, Deploymentの関係を整理したものが次の図.
+
+![deployment-replicaset-pod.png](./deployment-replicaset-pod.png)
+
+### Service
+Serviceは、Podの集合（主にReplicaSet）に対する経路やサービスディスカバリ（クライアントから一貫した名前でアクセスできるようにする仕組み）を提供するためのリソース.
+
+### Ingress
+Ingressは、ServiceのKubernetesクラスタの外への公開と、VirtualHostやパスベースでの高度なHTTPルーティングを両立する.
+
+クラスタの外からのHTTPリクエストをServiceにルーティングするためのnginx_ingress_controllerをデプロイする.
+
+```
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/nginx-0.16.2/deploy/mandatory.yaml
+```
+
+```
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/nginx-0.16.2/deploy/provider/cloud-generic.yaml
+```
