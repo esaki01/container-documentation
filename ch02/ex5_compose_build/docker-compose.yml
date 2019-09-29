@@ -1,7 +1,0 @@
-version: "3"
-services:
-  echo:
-    build: . # Dockerイメージのビルドも行う
-    image: ch02/ex1/echo:latest
-    ports:
-      - 9000:8080

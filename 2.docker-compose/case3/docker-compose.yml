@@ -1,3 +1,4 @@
+# servicesで複数コンテナの実行
 version: "3"
 services:
   master:

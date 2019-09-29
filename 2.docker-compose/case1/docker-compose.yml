@@ -1,0 +1,8 @@
+# $ docker container run -d -p 9000:8000 case1/echo:latest と同じ
+
+version: "3"
+services:
+  echo:
+    image: case1/echo:latest
+    ports:
+      - 9000:8080
