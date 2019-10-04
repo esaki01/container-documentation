@@ -2,7 +2,7 @@
 A cheat sheet of Docker and Kubernetes.
 
 ## Overview
-Learn from "Ｄｏｃｋｅｒ／Ｋｕｂｅｒｎｅｔｅｓ実践コンテナ開発入門".
+Learn from "Docker/Kubernetes実践コンテナ開発入門".
 
 ![image](https://user-images.githubusercontent.com/44774033/65827184-88542d80-e2ca-11e9-85a9-87d1f50f3bbd.png)
 
