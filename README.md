@@ -9,7 +9,8 @@ Learn from "Ｄｏｃｋｅｒ／Ｋｕｂｅｒｎｅｔｅｓ実践コンテ�
 ## Details
 ### Docker
 1. [基本操作](https://esa-pages.io/p/sharing/13096/posts/68/9ab3590c5a273812a769.html)
-2. [docker-compose](https://esa-pages.io/p/sharing/13096/posts/69/89de73e1906d4e1281bd.html)
+2. [Docker Compose](https://esa-pages.io/p/sharing/13096/posts/69/89de73e1906d4e1281bd.html)
 3. [Data Volume](https://esa-pages.io/p/sharing/13096/posts/70/9f087e4dec2f3047e1ef.html)
+4. [Docker Swarm](https://esa-pages.io/p/sharing/13096/posts/71/cd4df15999f3e96c315d.html)
 
 ### Kubernetes
