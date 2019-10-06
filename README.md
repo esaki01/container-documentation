@@ -16,3 +16,4 @@ Learn from "Docker/Kubernetes実践コンテナ開発入門".
 ### Kubernetes
 1. [環境構築](https://esa-pages.io/p/sharing/13096/posts/73/8d66b30d62bf6a94829b.html)
 2. [基本概念・操作](https://esa-pages.io/p/sharing/13096/posts/72/44be1f1a2fb65e36076c.html)
+3. [GKE（Google Kubernetes Engine）](https://esa-pages.io/p/sharing/13096/posts/75/6c23c259d6057b9d4b63.html)
