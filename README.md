@@ -1,5 +1,5 @@
-# Docker Kubernetes
-A cheat sheet of Docker and Kubernetes.
+# Container Documentation
+A documentation of container like Docker and Kubernetes.
 
 ## Overview
 Learn from "Docker/Kubernetes実践コンテナ開発入門".
