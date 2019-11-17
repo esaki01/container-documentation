@@ -1,5 +1,5 @@
-# Container Documentation
-A documentation of container like Docker and Kubernetes.
+# Container Documents
+>Documents of container like Docker and Kubernetes.
 
 ## Overview
 Learn from "Docker/Kubernetes実践コンテナ開発入門".
